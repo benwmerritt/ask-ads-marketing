@@ -1,0 +1,11 @@
+---
+title: "11.7 - Close Your Eyes and Think of ROI (or ROAS)"
+video_id: I2zuHNrbVR8
+channel: EdLeake
+url: https://youtube.com/watch?v=I2zuHNrbVR8
+duration_seconds: 142.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+Close your eyes and think of Roy. This might seem like a big dollop of obvious, but you can automate your retargeting bidding process by using the AdWords return on ad spend or ROAS functionality. It's true that as discussed earlier, by adding remarketing lists and layered bids, you're adding another step of complexity to your AdWords account. With that comes more management and also you have to remember to check up on performance, of course. Instead, you can use ROAS bidding to do the heavy lifting for you. So if you need a 6-1 return on your ad spend, you set your ROAS to 600% and let it go to work on your remarketing lists. Easy. But, of course, keep an eye on the results and just because you want to hit that ROI figure doesn't always mean that Google's able to achieve it. So it's not a set and forget. Keep your eye on it. Next we can use ROAS and similar audiences. So you take your known audience and you find a similar set of people and throw them at the ROAS machine. Done. Just kidding. But this is another very simple way of extending your reach by taking your different remarketing audiences and creating lookalikes or similar audiences as Google calls them and advertising directly to them. You can push display ads to this new audience and, of course, you can use target and bid campaigns against them so they trigger your ads in Google Search too. A similar audience can be built from your website visitors any segment. You can be built from your email uploads. So you can upload a list of current customers, for example, and Google Run its algorithm magic to find similar people to your existing customer base, be they website visitors or email addresses. It's not perfect, but Google suggests it's around 80% accurate and our experiences are, yes, it typically lifts your conversions. So it's worth a try. You might think you've hit your limit on how many people want your product. Well, think again, try similar audiences with a bit of ROAS targeting thrown in and extend your reach.

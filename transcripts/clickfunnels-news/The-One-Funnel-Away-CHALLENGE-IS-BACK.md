@@ -1,0 +1,11 @@
+---
+title: "The "One Funnel Away" CHALLENGE IS BACK!"
+video_id: vZaLljYVaaQ
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=vZaLljYVaaQ
+duration_seconds: 91.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+One Funnel Away, the One Funnel Away Challenge. I'm here today because we have something new coming out that I'm so excited for. One of the biggest complaints we had is people came in and said, look, I'm interested in physical products. I wanna do e-commerce. And the One Funnel Away Challenge doesn't really speak to people doing e-commerce. I heard people say that year after year, I kept thinking like, what should we do? How can we change this? We decided something really, really cool. We decided to break the One Funnel Away Challenge into two challenges. One that's One Funnel Away for experts and one that's One Funnel Away for e-commerce. The question was who could teach the track on e-commerce? And as we were looking through all the different people who are great at e-commerce, I realized there's only one person who stood alone. This person was the very first person on the ClickFunnels platform to win a Two Comic Club award. First person won a Two Comic Club X award. And one of the first people who won a Two Comic Club C award. And he did 100% of it, selling e-commerce physical products. He launched one of his very first funnels. It was a flashlight funnel. It went from zero to Two Comic Club X in literally like 60 days. It was crazy. But over the last decade of using e-commerce, he has mastered it at a level that nobody else I've ever seen before has done it. And this guy's name is Trey Llewellyn. And so I called with Trey the other day. I said, look, there are so many people who are coming into the ClickFunnels community and they want to learn e-commerce. Would you be willing to come and teach an entire track inside of the One Funnel Away Challenge, specifically on e-commerce? And luckily for you and for me, he said yes. And so the brand new OFA, you actually have two different tracks. Number one, you go down the expert route with me, I'm gonna show you exactly how to find your voice, share your message and change the world. Or number two, if you want to, you can go down the e-commerce track with Trey to learn how to create a product, get it launched into marketplace and start growing and scaling business.

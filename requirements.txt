@@ -1,0 +1,24 @@
+# FastMCP for Model Context Protocol
+fastmcp>=2.12.0
+
+# Vector database
+chromadb>=0.5.0
+
+# OpenAI for embeddings and generation
+openai>=1.95.1
+
+# Configuration and environment
+pyyaml>=6.0
+python-dotenv>=1.1.0
+
+# CLI and display
+rich>=13.0.0
+
+# Text processing
+sentence-transformers>=2.2.0
+python-frontmatter>=1.0.0
+tiktoken>=0.5.0
+
+# Remote MCP server dependencies
+fastapi>=0.115.12
+uvicorn[standard]>=0.34.0

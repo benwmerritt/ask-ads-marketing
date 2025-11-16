@@ -1,0 +1,50 @@
+# Python cache and environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Documentation and notes
+*.md
+!README.md
+!transcripts/*.md
+docs/
+SETUP_COMPLETE.md
+RAILWAY_DEPLOYMENT_GUIDE.md
+
+# Data and logs
+*.log
+data/chroma_db/
+*.sqlite3
+*.db
+
+# Config (we copy specific config files explicitly)
+config.yaml
+.env
+.env.local
+
+# Test files
+tests/
+pytest.ini
+.pytest_cache/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

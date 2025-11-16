@@ -1,0 +1,11 @@
+---
+title: "My Two Comma Club Story: Cori Lefkowith"
+video_id: wPKSHJwevcg
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=wPKSHJwevcg
+duration_seconds: 108.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+Hi, my name is Kori Lefkowitz of Redefining Strength, and this is my two comic books story. I run an online fitness and personal training business. Before ClickFunnels, I had a gym in Costa Mesa, California, and I trained both group training and personal training. I was only doing in-person training, and I really wanted to bring my business online. I'd started a blog and I was writing articles, but I didn't know how to make sales. ClickFunnels gave me the ability to make sales and have everything all in one place. I'm a personal trainer, and my knowledge base is all about personal training and helping people live healthier, happier lives. And so for me, the idea of going online and trying to figure out how to write sales pages, how to create funnels, it was just overwhelming. And ClickFunnels made it really easy so that I could do it even though I had no prior knowledge of how to make sales online or how to build an online fitness business. Being able to bring my business online has allowed me to reach people around the world. I've always wanted to empower people through diet and exercise, and now I'm able to reach people all the way in Australia and have clients in the UK, and even get to travel and do workshops and meet some of these people. So it's been a great experience to bring my knowledge base worldwide and really get to meet wonderful people around the world. It also has allowed me to build my gym to a point where I can hire on other trainers and help them also grow their business. By growing redefining strength online, I've been able to now live the lifestyle I want, give me a little bit more freedom to spend time with my husband Ryan and my dog Kiwi. If you're thinking about joining ClickFunnels, I would tell you to just do it. There's no better time than the president to take that leap, and if you don't start somewhere and really dial in all those different aspects of sales, you're not going to get the results that you want. And ClickFunnels makes it so easy to have a one-stop shop. So if you're overwhelmed, take the leap, jump in, it'll make it easy.

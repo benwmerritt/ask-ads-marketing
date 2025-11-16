@@ -1,0 +1,11 @@
+---
+title: "Timeless Google Ads Principles"
+video_id: sOugzIxlkSM
+channel: EdLeake
+url: https://youtube.com/watch?v=sOugzIxlkSM
+duration_seconds: 149.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+have a platform that's also being updated. And like I said earlier, it has timeless principles, so I really appreciate being able to come back to it time and time again. Hi, I'm Mohammed Al-Qaloot. I'm the head of marketing for a small agency called Cummings Creative Group. I've been doing PPC advertising probably for the greater part of a decade. The number one hesitation I had with signing up for God Tier Ads was probably the fact that there's a lot of noise in the environment. There's a lot of people that claim to be gurus and to be honest, it's kind of off pudding. But I was watching a video from guys at Solutions 8 and they happened to mention at leak, looked into them, learned about God Tier Ads and decided that I wanted to give it a shot. The biggest impact that I had and what I knew when I knew it was the right platform was probably when I got to the part about optimization and seeing principles that are timeless rather than just telling me where to press a button. I really appreciated that and thought that this could be something that I'll be able to come back to. The number one thing I got out of the framework was probably the fact that I can systematize this, right? So I can take it, apply it to what I need, what I typically do and then be able to articulate it, disseminate it to other people on my team. That way I have a structure or framework that is honestly going to save me tons of time. And then yeah, the thing that I really appreciated about God Tier Ads as opposed to others, because I've done quite a few, just the fact that I have a platform that's also being updated. And like I said earlier, it has timeless principles, so I really appreciate being able to come back to it time and time again, especially as new platforms roll out or there are new features introduced. Again, most of it I don't have to try to adapt on a day-to-day basis with the constantly evolving platform that is like Google Ads, for example. But I do appreciate having that framework. So thanks. I hope this was helpful to anybody out there.

@@ -1,0 +1,11 @@
+---
+title: "11.6 - RLSA + DSA, Your Lazy Google Advertising Switch"
+video_id: 2WlZyJPUiMs
+channel: EdLeake
+url: https://youtube.com/watch?v=2WlZyJPUiMs
+duration_seconds: 150.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+The Tag Team combo of RLSA and DSA can be great for your bottom line. If you've not used DSA before, it works by essentially doing away with keywords. So instead, Dynamic Search Ads, hence DSA, uses your content, your product pages from your website to target your ads to the user's search. It's very clever and it's more accurate than you might think. However, as always, there's a caveat. To do this, Google uses the organic search index of your website. So you need to make sure you upload an accurate site map to your webmaster tools, because Google will determine which searches might be relevant to your products and services based off this index. So if you have a poorly optimized website, DSA does become less effective. By poorly optimized, I mean you've not got your basics right, such as your page titles, your product descriptions, your meta tags, your breadcrumbs, and just generally the page content and hierarchy. But let's assume for now that you've maintained your website to a decent standard. That means with this remarketing tactic, you have no keyword research ever. So around 15% or so percent of all searches on Google of every minute of every day are unique and never have been searched for before. Think about that for a second. You don't have to do any keyword research or second guess the search terms people are currently or will be using to find you and your products. Instead, you let Google do all the hard work. Sounds too good to be true, right? Well, DSA on its own can be less effective because your website impacts the performance. It's absolutely not designed to be a shortcut to managing your ad account properly. And to be fair, it's often used for big inventories where, you know, the business has a huge range of products and pages. So why am I telling you about DSA if there are hurdles in the way? Because combined with your remarketing lists, you can cut straight through to those people who already know you but have yet to commit to a purchase. So every time they search, DSA fills in the blanks to suit and all of a sudden, well, you do kind of have a lazy autopilot switch.

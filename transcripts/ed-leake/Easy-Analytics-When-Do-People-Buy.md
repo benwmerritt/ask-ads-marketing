@@ -1,0 +1,11 @@
+---
+title: "Easy Analytics: When Do People Buy?"
+video_id: fkpNi3jDMKo
+channel: EdLeake
+url: https://youtube.com/watch?v=fkpNi3jDMKo
+duration_seconds: 144.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+Hi guys, Ed Leake here. So about a month ago I did a video on how to export your your adwords data to find the best time of day an hour of day to convert I had a message on Facebook from a chap called Tony and he says thanks for the video Ed But is there another way I f***ing hate spreadsheets? Well good news Tony there is you can actually use your analytics dashboard Which I'm going to show you how to do now So if you jump into your analytics and you click on Customization at the top and then what we're doing here is we're creating new custom reports So in the metrics group what we want to do select sessions and Then we want to add your e-commerce conversion rate and Then in the dimensions drill down we want to hit the hours and then if we just save that And again, I'm looking at a three months data here. It's a good good window of information So here we've got our hour of day sessions and e-commerce conversion rates So we want to do data visualization again using the comparison Click that Select 25 rows of data because there's 24 hours of the day and then go by hour because easy to Visualize so we've got sessions versus e-commerce conversion rate Really quick and simple and here you can see in this example that from sort of eight in the morning Up till three in the afternoon four in the afternoon It's the best time for this store to convert and you can clearly see that nine in the morning is really strong 10 11 right through to midday and there's a bit of a Spike again sort of closer to midnight and this really quick simple way to visualize your your time of day You can do exactly the same for day of week as well So if you go back to edit to edit this report and Then if you just change your outer to day of week name Save that again, and we've got the same data here. So visualize it There we go sessions versus conversion rates and as you can see this store in fact really poorly performs the weekend for whatever reason But there there it is. You can't lie with the data Tuesdays strong Monday and Friday. So there you go, Tony really quite straightforward and No more fucking spreadsheets. Enjoy cheers

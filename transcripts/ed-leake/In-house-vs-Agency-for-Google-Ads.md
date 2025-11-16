@@ -1,0 +1,11 @@
+---
+title: "In-house vs Agency for Google Ads"
+video_id: 9GT9fTcy6as
+channel: EdLeake
+url: https://youtube.com/watch?v=9GT9fTcy6as
+duration_seconds: 159.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+What the f**k are you talking about? I'm like, oh well, it's all about performance max now. And I'm like, oh my god. Everyone's talking about performance max. It's this, that, the other, it's changing the world. Imagine if you're a plumber and you've got a team of three guys, you're operating out of London and you're sat there going, shit, we do Google ads, what's all this Pmax stuff? I've literally had someone email me who bought God Tier Ads and said, I want to refund, this is not relevant anymore. And I was like, what the f**k are you talking about? I'm like, oh well, it's all about performance max now. And I'm like, oh my god, it's an industry, we are idiots. If someone who's doing Google ads buys God Tier Ads and thinks that, imagine what your clients are thinking. They've got no bloody ID, they're confused, they're thinking, everything's changing, don't fire Sam, don't fire Michael, don't fire Maritz because it's all changing. I don't want to deal with that. So partly Google changing stuff all the bloody time. Think Google Analytics 4, I mean, they were kind of forced into that with privacy laws and stuff. Michael said it, reframe it, put yourself in their shoes, they don't want this crap. If I'm a carpenter, I know wood, I don't know cliques. If I'm a plumber, I know copper pipes, I don't know cliques. And yes, the more sophisticated clients that probably in-house it eventually. If they're big enough, but someone good, someone good, reliable at their job. In the UK it's 35, 40k more plus benefits, plus health, plus holidays. It's five grand a month with tax, probably more. I guess you're a lot of Google Ads agency to be fair. I guess you're a lot and it de-risks a lot of cliques, a lot of shitty cliques. You can remember as well, agencies are de-risking it to a certain degree because if one's crap, you get another. And that's the fact of the matter. If the client's happy, carry on. When you hire someone, it's not that straightforward from a legal perspective.

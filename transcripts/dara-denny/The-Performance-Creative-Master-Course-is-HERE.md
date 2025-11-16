@@ -1,0 +1,11 @@
+---
+title: "The Performance Creative Master Course is HERE!"
+video_id: XTmTRkRmb8Q
+channel: DaraDenney
+url: https://youtube.com/watch?v=XTmTRkRmb8Q
+duration_seconds: 86.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+Performance creative is my art and in this course I'm going to share everything. If you're growing a brand using Facebook ads then your ad creative is the most important variable. You can have the right account structure, the right pixel setup, and even the right landing page but if your ad creative is not dialed in then you've already lost. You won't even reach your customer. And that's the thing about a Facebook ad or a TikTok ad. All that it is is disrupting your user. That's all that advertising really is actually. It's a disruption. So if you not only want to keep someone's attention but get them to buy from you then you need to show value really quickly. In this master course I'm going to show you my scalable and repeatable process for making creative that converts. I'm going to share all of my document slides and notion boards so that you never run out of inspiring ways to reach your customer. And I'm going to dive deep on the things that will truly make you an expert creative strategist. I've spent over a hundred million dollars on Facebook ads and everything that I know about creative that converts is going into this course. So if you're a brand, an agency, or a founder that is using Facebook ads to grow your business I guarantee you that you're going to get what you pay for this course back in multiples regardless of your spending two thousand dollars per month or two million dollars per month on your Facebook ads. What's up marketers let's begin.

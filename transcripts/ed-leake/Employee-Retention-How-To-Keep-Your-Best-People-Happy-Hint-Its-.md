@@ -1,0 +1,11 @@
+---
+title: "Employee Retention: How To Keep Your Best People Happy (Hint: It's $$$)"
+video_id: qbJ6HrwAhAM
+channel: EdLeake
+url: https://youtube.com/watch?v=qbJ6HrwAhAM
+duration_seconds: 172.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+The value of someone who's good and them sticking around for a long time is not to be underestimated in my experiences. You really should value those top performers. You're not doing a canned service, you're doing a more tailored experience. If you do train these people up and one of them leaves, you've got a bit of a headache, haven't you? But then I only say that because it's obviously harder to find someone with a broader skill, so it's really good than finding someone who's really good at one thing. But there's always Renumeration, you can always pay them bonuses based on if it's under 5k, you don't get a bonus. If it's over, we'll give you a you know, a percent kickback. I found that that simple process is a way of keeping people sticky. Even for the regular client management, I'm working on like you get 10% of what we charge this client. So if you have churns, you lose money and stuff like that to have more like this hay skin in the game as well. The downside I see about that is that they focus more on clients that we charge more. But is that such a bad thing? You'd have to manage that a bit, wouldn't you? But if you saw that creep, where the smaller clients are getting neglected, but yeah, I think overall it's a positive step to give people money back. If the business, the agency is doing well, the value of someone who's good and them sticking around for a long time is not to be underestimated in my experiences. I think if you're in a much larger organization, you can sort of forget about that. But in smaller businesses like we've got, you've got less than 50 staff, you really should value those top performers. Yeah, and it's like we were discussing about money in one of the calls in August and it's like you don't need all the money in the world. So it's really quite normal and quite decent to share with the ones who make it possible. So why not give them a slice of it at the end of the day? And the problem is the tax is awful. The more money you make, I have my tax bill and I'm still crying. I just, I can't.

@@ -1,0 +1,11 @@
+---
+title: "My Two Comma Club Story: Kat Johnson"
+video_id: fVKW4SHu5eM
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=fVKW4SHu5eM
+duration_seconds: 129.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+Hi, my name is Kat Johnson and this is my 2, Coma Club story. So I run a dance fitness business with my triplet sisters called TapFit. Before ClickFunnels, we were on shopping channels and we really struggled with this model because we had no control over the sales process whatsoever. There were so many unknowns and it was incredibly hard for us to manage cash flow and we needed to stabilise that cash flow so that we could build a sustainable business and get this off the ground the way we wanted to. Personally, it also meant that I could get out of debt. My triplet sisters and I had poured everything into this business for years. We just couldn't continue a relationship with shopping channels and the instability that came with the cash flow. And for us to build a website even, you know, it was $20,000 before we even started advertising. I saw a video of Russell on Facebook and he was talking about funnels and I was like, okay, let's give it a go. We can do this. So with ClickFunnels, we were able to build a funnel without a tech team, without needing to spend thousands of dollars with developers. We could steer our own ship basically and that was fundamental to our success moving forward. Being able to serve our customers and being in front line to our customers with our funnel has changed everything for us. And ClickFunnels allowed us to do that. ClickFunnels was an absolute stepping stone to financial freedom for us. My sisters and I are now able to pay ourselves from the business. We're planning on buying houses. We've paid off all of our debt and the relief that comes with being out of debt. There aren't words to describe how incredible that feels. We've been able to bring our dream to life and it's no longer a business that limps along. It's a business that is thriving and it's the business that we always knew that it could be. So if you're thinking about signing up to ClickFunnels, absolutely do it. Take the opportunity, run with it. It can change your life.

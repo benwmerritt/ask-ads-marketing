@@ -1,0 +1,11 @@
+---
+title: "How to build niche lists for cold outreach [with Mike Winnet]"
+video_id: A5nLiV3U1CE
+channel: EdLeake
+url: https://youtube.com/watch?v=A5nLiV3U1CE
+duration_seconds: 125.0
+date_processed: 2025-11-16
+---
+
+## Transcript
+When you're building a list for cold outreach, do you use quantity or quality or some what in the middle? It's in the middle. I make very niche lists, so it'll be segmented. It all depends on what I know I'm going to be talking about that week. So I'm constantly like at different stages with different lists and different topics. So like, I call it ones, twos, threes and fours. I've done a newsletter on it in Van Mou. I've got people that are in stage one, which is just I know I've got something that will probably make them buy from me or interest them in three weeks time. So I'm doing I'm building my list of ones. I'm putting out content that will talk to them that they might engage with it, then they become a number two. Then I can make them an sort of an offer or send them something I know is relevant to them. And then I know when it comes to number four is when I'm going to close that sale. So I build lists based on what content I know is going out, what's great examples of stuff that I've done, stuff that's worked well. All right. If I know I've got a really good newsletter for Van Mou coming out on Friday and it's specifically aimed at sales managers, let's just say, I would go and build my list of sales managers probably two or three weeks in advance. Get them all in my list. Details links to their YouTube. Sorry, links to their LinkedIn profile. And then I'd look at my email addresses for them. I've got phone numbers for them. Connect with them all, put out content. I would then see which ones have engaged with me the most. And then I would just pick off the most engaged people. So it's quality and quantity. Why do this all by every week? I had no days off. Religious. Yeah, because it becomes a five minute, 10 minute task, right? The problem with most people is they won't do anything on a list building thing. Then all of a sudden, like, my shit, now I've got to build a list. And it would be like a ball, like, and they're trying to build a list of 300 people. And it's, no, like, I've got 10, 15 people being added to different lists every day. It's not, it takes me five minutes.

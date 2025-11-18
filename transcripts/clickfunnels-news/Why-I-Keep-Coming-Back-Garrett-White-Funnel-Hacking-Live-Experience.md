@@ -1,0 +1,11 @@
+---
+title: "Why I Keep Coming Back | Garrett White Funnel Hacking Live Experience"
+video_id: tSAIxqxP13w
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=tSAIxqxP13w
+duration_seconds: 174.0
+date_processed: 2025-11-17
+---
+
+## Transcript
+Coming here and speaking for the fifth year in a row, I'm uniquely different from the other big-name speakers that come in, and they're valuable and powerful. But it's different when you hear from somebody who sat in the audience. I was one of the first clients at ClickFunnels. I was innovating on the platform before it was even as amazing as it is now. I've gone through the times when the servers went down. I was the first one to move all of our emails over to the email platform. We've been the first ones to innovate, broadcast, and declare. I am a product of the product. And so that's one reason. The other reason is because I know what this thing is actually all about. It's great, the awards, the rings, the plaques. These are fun. They keep us incentivized to go and give us a reason to feel acknowledged for all the dark nights when you were alone trying to make a decision to keep going. But the biggest reason I believe I could get called to come back here and share is because I continue to evolve. Just as ClickFunnels continues to evolve, I continue to innovate on the platform at the same speed that ClickFunnels continues to innovate. And it's this relationship, this symbiotic marriage between teams of hundreds who are committed to solidifying the platforms required for us to rise, but also my commitment to do what's required inside of my own calling. And when you marry those together, you have a user of the product, and you have a beacon of the way. And that's what Russell is. That's what so many here are. And that's what I am. I'm not better than any other funnel hacker or movement maker inside of our tribe. I'm just an example of what happens when you are willing to go over and over and over again. And so year after year we come back. And year after year this is the only stage I've become besides my own events of thousands of warrior men and black polos. I come here because this is where it all started for me and Danny. And I've been here for five straight years, and I'll be here for five straight more. Thank you.

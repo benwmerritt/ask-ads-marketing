@@ -1,0 +1,11 @@
+---
+title: "Joe Rogan Asks: What Should People Do GaryVee ?"
+video_id: Bccq9xzy-94
+channel: garyvee
+url: https://youtube.com/watch?v=Bccq9xzy-94
+duration_seconds: 106.0
+date_processed: 2025-11-18
+---
+
+## Transcript
+So what should we do Gary Veeb? Let's wrap this up. What should we do? What should people do? People should fucking stop complaining. Right. People should figure out who the fuck they are. Good call. People should not listen to America propaganda of fixing the shit they suck at. They should be tripling down on what they're good at. They should be competent in certain areas. But you're not going to become Beyonce or, you know, like your bone structure is a certain way. Like you're not going to solve everything. Your IQ can get a little bit better. But don't worry about the incremental. Figure out what you fucking put you on fire and you're halfway decent at. If you're lucky enough right now to be listening and you're good at what you like, become tunnel fucking vision. Because there's way too many voices telling you what and how. And here's the other thing. And this is the big one. Because you have a humongous audience. The biggest thing that I've seen dividends from have the conversation with the person that's holding you back. The reason most people who are listening right now are not doing that thing is they're worried about the opinion of somebody. Usually their mother. Usually their father. And the reality is, is that your spouse may be the person holding you back and you have to have that conversation. Cut him off. We have to get to a place where you're doing you because the number one thing that scares the fuck out of me is regret. And you're going to sit there at 72 and you're going to say, I wish, I wish, I wish. And whether that's money or spend more time with your family, there's a million ways to do this. Not everybody wants to buy the jets. Not everybody wants a smoke weed on the beach in Bahamas. Like everybody's got a different fucking thing. Figure out what your fucking thing is and stop making fucking bullshit excuses. Who the president is. Your mom did this. Like I missed it. I had that idea for Uber. Then why didn't you fucking do it, dick?

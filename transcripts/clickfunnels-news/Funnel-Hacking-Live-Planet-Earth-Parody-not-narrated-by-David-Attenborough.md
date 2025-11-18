@@ -1,0 +1,11 @@
+---
+title: "Funnel Hacking Live (Planet Earth Parody) not narrated by David Attenborough"
+video_id: MtDkUWhVmxM
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=MtDkUWhVmxM
+duration_seconds: 198.0
+date_processed: 2025-11-17
+---
+
+## Transcript
+Beneath the gaze of the Nashville Sun, life at Funnel Hacking Live begins to take form. A sight not to be missed. Here we can see the migration of nearly 5,000 funnel hackers descend upon an unsuspecting hotel. For a brief period of four days, this habitat will dramatically change. The funnel-less hacker form is a rare species, but ever growing by the thousands each passing day. Throughout the year, most of us do not see them, often questioning their existence if it weren't for their countless retargeting acts. They wake in the early morning hours and are usually found in a crowded gym. Mentoring the curious young hacklings, rejoicing in the sun by the watering hole for a brief moment, and of course recording more ads because the backdrop is just stunning. They congregating what's known to scientists as a joint venture. The outfit of choice being matching t-shirts and undergarments, signifying the bond that ties this dispersed breed together. This is amplified by a greeting ritual of an endless myriad of high fives, hugs, acro-yoga, and handshakes from the field to the bush. In the early hours they descend upon one single enclosure. As the doors swing open, the hackers spring into motion, flocking 30 miles per hour in a race toward seat supremacy. Only the most spirited will lay claim to a coveted view. From there, they revel at the arrival of the alphas who impart their wisdom from prior hunts. During this time, their feeding ritual is complex. Many subspecies survive on a diet of coffee and water, which often unintentionally creates a conflict of having to choose between absorbing knowledge and going to the bathroom. As the voyage comes to an end, they celebrate with a multitude of unpolished dance rituals, and whatever this is, a pleasing sensation. They have replenished their minds and spirits and are fit to return to the wild. FHL is a unique anthropological phenomenon fit for the most peculiar of entrepreneurs. Those that have discovered that running a business without a funnel is just stupid.

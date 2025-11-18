@@ -1,0 +1,11 @@
+---
+title: "Twitter Was Hooking Up With Chicks in the Summer"
+video_id: vvbYSKSMQgM
+channel: garyvee
+url: https://youtube.com/watch?v=vvbYSKSMQgM
+duration_seconds: 128.0
+date_processed: 2025-11-18
+---
+
+## Transcript
+But my real question is everybody's really talking about how Twitter's in trouble. Could Twitter become my space? Yes. Ooh, that's scary. For Twitter? Well, it's scary for me too. I'm gotten used to getting my news from Twitter. Great, people used to get their news from the radio. Back, back. Right? I was used to getting my music from MTV. So we just gotta realign and get our news from Snapchat or Instagram. Yep. Okay, Twitter's in trouble, shit. And by the way, Twitter is the reason I'm even sitting here. As you know, Twitter was the first time I really popped. Back in the day, I was doing my wine show. I jumped on Twitter, I thought it was gonna be big. It ended up being way bigger. And I really popped and transitioned into business content instead of wine content. And so, I love Twitter. Twitter's like the first girl I ever hooked up with. You know what I mean? There's always that piece in my soul. And so it makes, it's hard for me to say that. By the way, I sit on a lot of Twitter stock. I sold a lot of it, but I still have a lot. And I have a lot of economics. What do they do? They gotta change. You gotta evolve. But Donna did it right. She reinvented herself 14 times. That's why she had a long career. You know, like, you've gotta reinvent yourself. You need pro, Twitter didn't make product changes for six years in its prime. You know, so let's talk about sports. When you're the best athlete and you're like the guy and you're like one of the top 15 players, basketball, I'm looking at Dunk, at Dunk on Instagram, I'll give you some love. He's got one of the big basketball accounts, so I'm thinking about that. I think about basketball players. Dreymon Green, he's my buddy. Dreymon really worked on his game every off season. Ricky Rubio, the flashy point guard from Minnesota. If he developed his outside shot, he would have been a much bigger player. He had all the passing skills, the quickness. He's got everything. If instead of going to a visa and a fucking chicks in the off season, he worked on his 18 foot jumper, he'd be in the game. Twitter was banging chicks in the summer. Got it? Yeah.

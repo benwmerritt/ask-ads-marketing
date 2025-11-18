@@ -1,0 +1,11 @@
+---
+title: "The Taylor Swift Principle"
+video_id: VVEM8HOSMQM
+channel: garyvee
+url: https://youtube.com/watch?v=VVEM8HOSMQM
+duration_seconds: 142.0
+date_processed: 2025-11-18
+---
+
+## Transcript
+I just think you've gotta rethink the entire thing, but to break through the noise, on by definition, you have to do something fundamentally different than what everybody else is doing, and everybody else is doing the same thing. I call it the Taylor Swift rule. So I think Taylor Swift hacked culture. I think Kanye does it as well, believe it or not. Here's what they do. You scale the unscalable if you wanna break through the noise today. So let me explain. What Taylor Swift's very good at is she knows that when people tweet her and say, Taylor, come to my wedding and sing me a song, she actually does it. Here's why she does it. The 75 minute allocation of her time to do something like that is not ROI positive for Taylor based on what she makes for her time. However, the amplification of doing something that makes no sense on paper is where she gets all her value. So I get yelled at by all my smartest CEO friends, the most fancy gals and guys on earth, for still answering all these tweets and emails and replying one by one on Snapchat. But I know that depth is far more interesting than width in a world where the width has just become completely obnoxiously loud and impossible to break through. The truth is, there are characters that look like me running around. There are people that understand, I know not that many, but you can get somebody into an honest conversation because they do not have aligned interests. They don't and they start the relationship with knowing each other not at all and that's the closest on aligned interests they'll ever be and this is all that happens and it breaks. So to me, let's just fucking get it out of the way. I just think communication's very valuable. Like it just works and just nobody does it. Like really, I mean, great communicators win in life, especially back to why I married my wife five seconds into our first date, especially if you're lucky enough to find another great communicator. And that's where client relationships and that's where business partnerships go. I just think it's better to know that it's not gonna work up front.

@@ -1,0 +1,11 @@
+---
+title: "Funnel Hacking Live - What Is It?"
+video_id: F0PKXgc4Be8
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=F0PKXgc4Be8
+duration_seconds: 124.0
+date_processed: 2025-11-17
+---
+
+## Transcript
+Hey, you. Are you an entrepreneur? I'm a sales trainer. I'm a network marketer. I'm a coach. I'm a DJ. I'm an e-com. Are you looking to grow your business online? Do you want to build a network? Do you want to take a vacation and not feel guilty about it? Go on. Then you have to come to Funnel Hacking Live. The number one marketing and funnel building event in the world. Hold on. Aren't business conferences boring? Sure. Most are. Do these people look bored? Funnel Hacking Live is like a rock concert for entrepreneurs. Nothing gets those juices flowing like roundtables, speakers, lasers, and dancing. Whoa. Trust me. This is where you want to be. Tell me more. Okay. You get to learn from the world's top funnel builders. And of course... Brutal! Brutal! They'll share with you exactly what's working and how you can implement these ideas in your company. Where is it? It's in Orlando, Florida. All you do at Undisclosed Orlando Theme Parks is spend money in waiting long boring lines. At FHL, you learn how to make money. And the lines look like this. I like that. Even your kids will love it. Will Tony be there? Maybe. Dan Kennedy was there last year. But hey, there are 5,000 other people you can meet. You can network, shoot the breeze, maybe even fall in love. Okay, those two may have come here together. But either way, don't they look happy? Will I learn what a funnel is? Sure, I'd explain it to you, but Russell's much better at it. Here's what a funnel is. It in that show. You got that? Good. What are those, awards? Yes, they are. Make over a million dollars with a funnel and you can take one of those bad boys home. No f***ing way. Hey, watch your language. Only Garrett is allowed to swear here. Set a f***ing like that shirt. Clean that f*** up. I'm just gonna f*** and retire. You are only one funnel away. So find your funnel, your people, your strategies and inspiration at this year's Funnel Hacking Live. Go to funnelhackinglive.com now to get your tickets. Give us four days to blow your mind.

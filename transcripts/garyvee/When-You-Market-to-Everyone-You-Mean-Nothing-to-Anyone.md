@@ -1,0 +1,11 @@
+---
+title: "When You Market to Everyone You Mean Nothing to Anyone"
+video_id: M0cE6JVIq20
+channel: garyvee
+url: https://youtube.com/watch?v=M0cE6JVIq20
+duration_seconds: 113.0
+date_processed: 2025-11-18
+---
+
+## Transcript
+So I think the things we have to do is always debate everything. Always debate everything, become far less headline readers. Facebook had some reporting errors on things that we never even reported against because they didn't really matter. Right, so like, but everybody hears that. Or vice versa, whatever the headlines are. So I think attention is what you need to trade on. Here's another one. I believe that buying, I am a massive anti-programmatic banner and pre-roll digital ad buyer. I am at the highest levels and I just don't think it's a good idea to be on weeklysavings.org, bottom left hand corner banner ad, when the justification is the CPM cost. Nobody saw it. So I think we have, you know, if you and I were doing this chat right now and there was nobody in here, it wouldn't matter what the creative is. And so first we have to nail that down and then we have to nail down the creative. And I think using the piggyback off the election, different people want to hear different things. And thank you, you know, for whatever you think of it, for me, thankfully, if nothing, you know, at the most micro levels, because there are much bigger macro issues with politics, if nothing else, people are now debating like, oh right, you can't give people the same message. The days of marketing of chase, it's for all of you. What, like, it's over. Like, vanilla marketing is dead because we had to vanilla market for 50 years because they were blunt objects. You ran a commercial to everybody, but it meant nothing. Because when you try to mean something to everybody in one false swoop, you mean nothing to anybody. Before pressing play because I don't want anybody else to know it's not, but it's just moving forward continue it. And we try it, but when you try your best... You talk to anybody else about something else, you take the best action, you speak along with these volleys. And do whatever you want And continue it. Do what you want the best! And keep people. Keep people Keep people! And by divine help We bring all of you back

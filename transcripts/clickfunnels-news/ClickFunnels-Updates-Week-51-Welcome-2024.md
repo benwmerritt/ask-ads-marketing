@@ -1,0 +1,11 @@
+---
+title: "ClickFunnels Updates Week 51: Welcome 2024"
+video_id: nBOeq_0mNQA
+channel: clickfunnelsnews
+url: https://youtube.com/watch?v=nBOeq_0mNQA
+duration_seconds: 105.0
+date_processed: 2025-11-17
+---
+
+## Transcript
+Happy New Year Funnel Hackers, Tim here. Can you believe it's finally 2024? Last year was definitely an exciting time for everyone over here at ClickFunnels and we want to ensure that this year is just as exciting for all of you. We are continuing to make improvements to ClickFunnels 2.0 so that you have the tools to make faster and easier funnels and of course have a very prosperous new year. Last week we went ahead and added a new way for you to preview your email broadcast. Previously you would have to go into the actual email editor in order to preview them. However, now we went ahead and just added a simple button that you could click. Make sure everything looks good before you hit that send button. We've also been working on a lot of improvements to the ClickFunnels 2.0 community feature. For example, if someone posts a link in the community, when you click on that link, it's going to actually open up a new separate tab in your browser so it doesn't take you away from the community. The same thing is going to happen if you or an admin goes to access the settings within the community, it's going to open up a separate tab as well. And lastly, we also made improvements to the funnel sharing experience. Now when you add a funnel from a share link in your account, it's going to display an installing screen just like when you build a funnel from scratch in your dashboard. Now I really want to thank absolutely everyone who sent us feedback and great suggestions in 2023. Thanks to you, our fellow funnel hackers, we've been actually able to take your feedback and implement it and basically build out a platform that everyone's going to enjoy, including your customers when they visit your funnels. That said, any time you have any type of recommendations or any suggestions, go ahead and go to clickfunnels.com slash post and let us know there and you'll even be able to upvote any other suggestions that previous funnel hackers made as well. That's all for now. Take care funnel hackers and I look forward to working with you in making 2024 an absolutely amazing year. Take care.

@@ -1,0 +1,11 @@
+---
+title: "Put in the Time!"
+video_id: g_sii0Duzkk
+channel: garyvee
+url: https://youtube.com/watch?v=g_sii0Duzkk
+duration_seconds: 117.0
+date_processed: 2025-11-18
+---
+
+## Transcript
+What my question is, like I said, I just started blog and I've read all your books and I'm all about giving back, but I also work full time. I was wondering if you had any advice, like how to scale to give my best to my job? So that's where I'm making my monetary plan. And eventually, yes, I'm going to do my blog full time and teach people how to network. What happened I gave the best to both? By putting in the time. And it's the only asset you got, right? Right. Like that's your asset. And you know this if you read the books. I'm obsessed with this notion of 7pm to 2 in the morning. Listen, I complain every day like fuck man, I need to lose some weight. And like this side, the other side, yell at like my new assistant, Mike, I'm like, you got to skip, but the truth is I'm not putting in the work. At time. Like when I tell everybody that they can sleep one hour less if they want to build a business, I can sleep one hour less to hit the gym, right? So, you know, it's what you put in, man. You know, what I like about this though is work takes up a lot of time and energy, but when you're actually doing something you love, it's a little bit easier to put in that 10pm, 11pm. I mean, listen, a bunch of us, I see a couple of guys here at VaynerMedia were in the office the other day at 2 o'clock in the morning. It's the 1.30 in the morning. It's the latest I've been there. Why? Because from 9 to 1.30 in the morning, we were working on my brand for the first time in a long time because the book is coming. And guess what? I bought my brand. You know, I love me. And it was easy. I wasn't tired. I didn't want to go to sleep. And so, you know, the thing that I would tell you to do that gives you the best prayer for this to work is make sure you really in tune and self-aware that this blog is around the thing that you like the most. You know, don't make it about interviewing internet peeps. Like, unless that's the thing you want, unless you grew up one day I want to be Charlie Rose, unless that's right. But you know, one day you wanted to like ride dinosaurs, make it about fucking dinosaurs. And then just...

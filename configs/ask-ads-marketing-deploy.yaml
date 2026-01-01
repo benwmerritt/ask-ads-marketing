@@ -15,8 +15,8 @@ data_sources:
   source_notes_dir: "/app/notes"
 
 embeddings:
-  provider: "openai"
-  model: "text-embedding-3-small"
+  provider: "voyage"
+  model: "voyage-3-lite"
   batch_size: 100
   show_progress: true
   fallback_model: "all-MiniLM-L6-v2"
@@ -34,8 +34,27 @@ search:
   top_k_initial: 30
   top_k_final: 15
   min_relevance_score: 0.5
-  enable_hybrid: true
   enable_mmr: true
+  # BM25 hybrid search with RRF fusion
+  hybrid_enabled: true
+  hybrid_alpha: 0.7  # 70% vector, 30% BM25
+  bm25_index_path: "/app/data/bm25_index.pkl"
+
+# ⚠️ ENRICHMENT DISABLED - COSTS ~$5 PER BUILD
+# To enable: change 'enabled' to true (only do this intentionally!)
+metadata_injection:
+  enabled: false
+  provider: "anthropic"
+  model: "claude-haiku-4-5-20251001"
+  batch_size: 5
+
+# Cohere reranking for final result relevance
+reranking:
+  enabled: true
+  provider: "cohere"
+  model: "rerank-english-v3.0"
+  initial_k: 30
+  final_k: 10
 
 generation:
   provider: "openai"

@@ -9,9 +9,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import os
-import re
 import chromadb
-from chromadb.errors import NotFoundError
 from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 import yaml
@@ -22,6 +20,27 @@ from rich.table import Table
 from rich.panel import Panel
 from rich.markdown import Markdown
 from dotenv import load_dotenv
+
+# Optional: Voyage AI for asymmetric embeddings
+try:
+    import voyageai
+    VOYAGE_AVAILABLE = True
+except ImportError:
+    VOYAGE_AVAILABLE = False
+
+# Optional: Cohere for reranking
+try:
+    import cohere
+    COHERE_AVAILABLE = True
+except ImportError:
+    COHERE_AVAILABLE = False
+
+# Optional: BM25 for hybrid search
+try:
+    from lib.bm25_index import BM25Index, BM25_AVAILABLE
+except ImportError:
+    BM25_AVAILABLE = False
+    BM25Index = None
 
 load_dotenv()
 
@@ -45,9 +64,45 @@ class KnowledgeQuery:
         # Get the same embedding function used during ingestion
         self.embedding_function = self._get_embedding_function()
         self._using_fallback = False
-        self._fallback_cache: Dict[str, List[Dict[str, Any]]] = {}
-        self._fallback_reason: Optional[str] = None
-        
+
+        # Voyage AI for asymmetric query embeddings
+        self._using_voyage = False
+        self._voyage_client = None
+        self._voyage_model = None
+        if self.config['embeddings'].get('provider') == 'voyage':
+            voyage_key = os.getenv('VOYAGE_API_KEY')
+            if voyage_key and VOYAGE_AVAILABLE:
+                self._using_voyage = True
+                self._voyage_client = voyageai.Client(api_key=voyage_key)
+                self._voyage_model = self.config['embeddings'].get('model', 'voyage-3-lite')
+                logger.info(f"Using Voyage asymmetric query embeddings: {self._voyage_model}")
+
+        # Cohere for reranking
+        self._cohere_client = None
+        rerank_config = self.config.get('reranking', {})
+        if rerank_config.get('enabled') and COHERE_AVAILABLE:
+            cohere_key = os.getenv('COHERE_API_KEY')
+            if cohere_key:
+                self._cohere_client = cohere.ClientV2(api_key=cohere_key)
+                self._rerank_model = rerank_config.get('model', 'rerank-english-v3.0')
+                self._rerank_initial_k = rerank_config.get('initial_k', 30)
+                self._rerank_final_k = rerank_config.get('final_k', 10)
+                logger.info(f"Cohere reranking enabled: {self._rerank_model}")
+
+        # BM25 for hybrid search
+        self._bm25_index = None
+        search_config = self.config.get('search', {})
+        if search_config.get('hybrid_enabled') and BM25_AVAILABLE:
+            bm25_path = search_config.get('bm25_index_path', './data/bm25_index.pkl')
+            try:
+                from pathlib import Path
+                if Path(bm25_path).exists():
+                    self._bm25_index = BM25Index.load(bm25_path)
+                    self._hybrid_alpha = search_config.get('hybrid_alpha', 0.7)
+                    logger.info(f"BM25 hybrid search enabled (alpha={self._hybrid_alpha})")
+            except Exception as e:
+                logger.warning(f"Could not load BM25 index: {e}")
+
         # Connect to Chroma
         self.client = chromadb.PersistentClient(
             path=self.config['chroma']['persist_directory'],
@@ -71,7 +126,7 @@ class KnowledgeQuery:
                 f"{prefix}_{names['metadata']}",
                 embedding_function=self.embedding_function
             )
-        except NotFoundError as e:
+        except Exception as e:
             raise RuntimeError(
                 "Chroma collections not found for this profile. "
                 "Please run ingestion for the selected config: "
@@ -96,16 +151,10 @@ class KnowledgeQuery:
         console.print(f"[dim]Content: {self.content.count():,} chunks | "
                      f"Concepts: {self.concepts.count():,} | "
                      f"Documents: {self.metadata.count():,}[/dim]\n")
-
-        # If embeddings are unavailable, prepare fallback immediately
-        if self.embedding_function is None:
-            self._prepare_keyword_fallback(
-                reason="OpenAI embeddings unavailable; using keyword-based search fallback"
-            )
     
     def search(self, query: str, top_k: int = 10, collection: str = 'content') -> List[Dict]:
-        """Search a specific collection"""
-        
+        """Search with optional Voyage embeddings, BM25 hybrid fusion, and Cohere reranking."""
+
         if collection == 'content':
             coll = self.content
         elif collection == 'concepts':
@@ -114,39 +163,193 @@ class KnowledgeQuery:
             coll = self.quotes
         else:
             coll = self.metadata
-        
-        if self._using_fallback or self.embedding_function is None:
-            return self._keyword_search(query, top_k=top_k, collection=collection)
 
+        # Determine fetch count based on reranking
+        if self._cohere_client and collection == 'content':
+            fetch_count = self._rerank_initial_k
+        else:
+            fetch_count = min(top_k * 3, 100)
+
+        # Query ChromaDB with Voyage embeddings if available
         try:
-            results = coll.query(
-                query_texts=[query],
-                n_results=top_k
-            )
-        except Exception as e:
-            if not self._using_fallback and self.config['embeddings'].get('provider') == 'openai':
-                logger.warning(
-                    f"Embedding query failed, switching to keyword-based fallback: {e}"
+            if self._using_voyage:
+                query_embedding = self._embed_query_voyage(query)
+                results = coll.query(
+                    query_embeddings=[query_embedding],
+                    n_results=fetch_count
                 )
-                self._prepare_keyword_fallback(reason=str(e))
-                return self._keyword_search(query, top_k=top_k, collection=collection)
-            raise
+            else:
+                results = coll.query(
+                    query_texts=[query],
+                    n_results=fetch_count
+                )
+        except Exception as e:
+            # Fallback to local embeddings if needed
+            if not self._using_fallback and self.config['embeddings'].get('provider') in ('openai', 'voyage'):
+                logger.warning(f"Embedding query failed, falling back to local embeddings: {e}")
+                self._fallback_to_local_embeddings()
+                if collection == 'content':
+                    coll = self.content
+                elif collection == 'concepts':
+                    coll = self.concepts
+                elif collection == 'quotes' and self.quotes:
+                    coll = self.quotes
+                else:
+                    coll = self.metadata
+                results = coll.query(
+                    query_texts=[query],
+                    n_results=fetch_count
+                )
+            else:
+                raise
 
-        formatted_results = []
+        # Format vector results
+        vector_results = []
         for i in range(len(results['ids'][0])):
-            # Convert cosine distance (0-2 range) to similarity score (0-1 range)
-            # Cosine distance: 0 = identical, 2 = opposite
             distance = results['distances'][0][i]
-            similarity = max(0, (2 - distance) / 2)
-            
-            formatted_results.append({
+            semantic_score = max(0, (2 - distance) / 2)
+            vector_results.append({
                 'id': results['ids'][0][i],
                 'content': results['documents'][0][i],
                 'metadata': results['metadatas'][0][i],
-                'score': similarity
+                'score': semantic_score,
+                'vector_rank': i + 1
             })
-        
-        return formatted_results
+
+        # Apply hybrid BM25 fusion if available and for content collection
+        if self._bm25_index and collection == 'content':
+            formatted_results = self._hybrid_search(query, vector_results, fetch_count)
+        else:
+            formatted_results = vector_results
+
+        # Apply Cohere reranking if available and for content collection
+        if self._cohere_client and collection == 'content':
+            formatted_results = self._rerank_results(query, formatted_results)
+            return formatted_results[:top_k]
+
+        # Sort and return
+        formatted_results.sort(key=lambda x: x['score'], reverse=True)
+        return formatted_results[:top_k]
+
+    def _embed_query_voyage(self, query: str) -> List[float]:
+        """Embed query with Voyage AI using input_type='query' for asymmetric retrieval."""
+        result = self._voyage_client.embed(
+            texts=[query],
+            model=self._voyage_model,
+            input_type="query",
+            truncation=True
+        )
+        return result.embeddings[0]
+
+    def _hybrid_search(self, query: str, vector_results: List[Dict], k: int) -> List[Dict]:
+        """Combine vector and BM25 results using Reciprocal Rank Fusion (RRF)."""
+        # Get BM25 results
+        bm25_results = self._bm25_index.search(query, top_k=k)
+
+        # Build ID -> result mapping from vector results
+        id_to_result = {r['id']: r for r in vector_results}
+
+        # RRF constant (standard value)
+        rrf_k = 60
+
+        # Calculate RRF scores
+        rrf_scores = {}
+
+        # Vector rankings (alpha weight)
+        for rank, result in enumerate(vector_results, 1):
+            doc_id = result['id']
+            rrf_scores[doc_id] = self._hybrid_alpha * (1 / (rrf_k + rank))
+
+        # BM25 rankings (1-alpha weight)
+        for rank, (doc_id, content, bm25_score) in enumerate(bm25_results, 1):
+            if doc_id not in rrf_scores:
+                rrf_scores[doc_id] = 0
+                # Add to result mapping if not from vector search
+                id_to_result[doc_id] = {
+                    'id': doc_id,
+                    'content': content,
+                    'metadata': {},  # BM25 doesn't have metadata
+                    'score': 0
+                }
+            rrf_scores[doc_id] += (1 - self._hybrid_alpha) * (1 / (rrf_k + rank))
+
+        # Update scores and sort
+        for doc_id, rrf_score in rrf_scores.items():
+            if doc_id in id_to_result:
+                id_to_result[doc_id]['score'] = rrf_score
+                id_to_result[doc_id]['rrf_score'] = rrf_score
+
+        results = list(id_to_result.values())
+        results.sort(key=lambda x: x.get('rrf_score', x['score']), reverse=True)
+        return results
+
+    def _rerank_results(self, query: str, results: List[Dict]) -> List[Dict]:
+        """Rerank results using Cohere cross-encoder."""
+        if not results:
+            return results
+
+        documents = [r['content'] for r in results]
+
+        try:
+            rerank_response = self._cohere_client.rerank(
+                model=self._rerank_model,
+                query=query,
+                documents=documents,
+                top_n=self._rerank_final_k
+            )
+
+            reranked = []
+            for item in rerank_response.results:
+                result = results[item.index].copy()
+                result['rerank_score'] = item.relevance_score
+                result['original_score'] = result['score']
+                result['score'] = item.relevance_score
+                reranked.append(result)
+
+            return reranked
+
+        except Exception as e:
+            logger.warning(f"Reranking failed, using original order: {e}")
+            return results[:self._rerank_final_k]
+
+    def _calculate_keyword_score(self, query: str, content: str) -> float:
+        """Calculate keyword matching score using n-gram overlap"""
+        # Extract meaningful query terms (3+ chars, lowercase)
+        query_terms = set()
+        for word in query.lower().split():
+            # Remove common punctuation
+            word = word.strip('.,!?;:()[]{}""\'')
+            if len(word) >= 3:
+                query_terms.add(word)
+
+        if not query_terms:
+            return 0.0
+
+        content_lower = content.lower()
+
+        # Count exact term matches
+        exact_matches = sum(1 for term in query_terms if term in content_lower)
+
+        # Bonus for multi-word phrase matches
+        phrase_bonus = 0
+        if len(query.split()) >= 2:
+            # Check if full query phrase appears
+            if query.lower() in content_lower:
+                phrase_bonus = 0.5
+            # Check for 2-word phrases
+            words = query.lower().split()
+            for i in range(len(words) - 1):
+                bigram = f"{words[i]} {words[i+1]}"
+                if bigram in content_lower:
+                    phrase_bonus = max(phrase_bonus, 0.3)
+
+        # Normalize score: (matches / total_terms) + phrase_bonus
+        # Max score = 1.5 (perfect match + phrase)
+        if not query_terms:
+            return 0.0
+
+        keyword_score = (exact_matches / len(query_terms)) + phrase_bonus
+        return min(keyword_score, 1.5)  # Cap at 1.5
     
     def _get_embedding_function(self):
         """Get the same embedding function used during ingestion"""
@@ -161,100 +364,43 @@ class KnowledgeQuery:
                     model_name=self.config['embeddings']['model']
                 )
             else:
-                logger.warning("OpenAI API key not found; embeddings disabled")
+                logger.warning("OpenAI API key not found, falling back to local embeddings")
         
-        # No compatible embedding provider – use keyword fallback
-        return None
+        # Fallback to local embeddings
+        fallback_model = self.config['embeddings'].get('fallback_model', 'all-MiniLM-L6-v2')
+        return embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name=fallback_model
+        )
 
-    def _prepare_keyword_fallback(self, reason: Optional[str] = None) -> None:
-        """Load documents into memory for keyword-based fallback search."""
-
-        if self._using_fallback and self._fallback_cache:
-            return
-
-        if reason:
-            self._fallback_reason = reason
-            logger.warning(f"Using keyword fallback: {reason}")
-
-        collections = {
-            'content': self.content,
-            'concepts': self.concepts,
-            'metadata': self.metadata,
-        }
-        if self.quotes:
-            collections['quotes'] = self.quotes
-
-        for name, coll in collections.items():
-            if not coll:
-                self._fallback_cache[name] = []
-                continue
-            total = coll.count()
-            if total == 0:
-                self._fallback_cache[name] = []
-                continue
-            documents: List[Dict[str, Any]] = []
-            batch_size = 500
-            for offset in range(0, total, batch_size):
-                chunk = coll.get(limit=batch_size, offset=offset)
-                ids = chunk.get('ids', [])
-                docs = chunk.get('documents', [])
-                metas = chunk.get('metadatas', [])
-                for idx, doc in enumerate(docs):
-                    documents.append({
-                        'id': ids[idx] if idx < len(ids) else None,
-                        'content': doc or '',
-                        'metadata': metas[idx] if idx < len(metas) else {}
-                    })
-            self._fallback_cache[name] = documents
-
+    def _fallback_to_local_embeddings(self):
+        """Reinitialize collections with local sentence-transformer embeddings"""
+        fallback_model = self.config['embeddings'].get('fallback_model', 'all-MiniLM-L6-v2')
+        self.embedding_function = embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name=fallback_model
+        )
         self._using_fallback = True
-
-    def _keyword_search(self, query: str, top_k: int, collection: str) -> List[Dict[str, Any]]:
-        """Return top_k results using simple keyword scoring."""
-
-        self._prepare_keyword_fallback()
-
-        data = self._fallback_cache.get(collection) or self._fallback_cache.get('content', [])
-        if not data:
-            return []
-
-        keywords = self._extract_keywords(query)
-        scored = []
-        for item in data:
-            text = (item.get('content') or '').lower()
-            meta = item.get('metadata') or {}
-            score = 0.0
-
-            for word in keywords:
-                if not word:
-                    continue
-                score += text.count(word)
-                title = (meta.get('title') or '').lower()
-                if word in title:
-                    score += 2.0
-
-            if not keywords:
-                score = 1.0
-
-            scored.append((score, item))
-
-        scored.sort(key=lambda x: x[0], reverse=True)
-        top_entries = [entry for _, entry in scored[:top_k]] if scored else []
-
-        results = []
-        for entry in top_entries:
-            results.append({
-                'id': entry.get('id'),
-                'content': entry.get('content'),
-                'metadata': entry.get('metadata'),
-                'score': 0.0
-            })
-
-        return results
-
-    @staticmethod
-    def _extract_keywords(text: str) -> List[str]:
-        return [tok for tok in re.findall(r"[A-Za-z0-9']+", text.lower()) if len(tok) >= 3]
+        # Reload collections with the new embedding function
+        prefix = self.config['chroma']['collection_prefix']
+        names = self.config['chroma']['collections']
+        self.content = self.client.get_collection(
+            f"{prefix}_{names['content']}",
+            embedding_function=self.embedding_function
+        )
+        self.concepts = self.client.get_collection(
+            f"{prefix}_{names['concepts']}",
+            embedding_function=self.embedding_function
+        )
+        self.metadata = self.client.get_collection(
+            f"{prefix}_{names['metadata']}",
+            embedding_function=self.embedding_function
+        )
+        try:
+            self.quotes = self.client.get_collection(
+                f"{prefix}_{names.get('quotes', 'quotes')}",
+                embedding_function=self.embedding_function
+            )
+        except:
+            self.quotes = None
     
     def display_results(self, results: List[Dict], query: str, result_type: str = "content"):
         """Display search results nicely"""

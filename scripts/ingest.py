@@ -18,6 +18,20 @@ from lib.processor import DocumentProcessor
 from lib.chunker import SmartChunker
 from lib.embedder import create_embeddings
 
+# Optional: Chunk enrichment with LLM
+try:
+    from lib.enricher import ChunkEnricher
+    ENRICHER_AVAILABLE = True
+except ImportError:
+    ENRICHER_AVAILABLE = False
+
+# Optional: BM25 for hybrid search
+try:
+    from lib.bm25_index import BM25Index, BM25_AVAILABLE
+except ImportError:
+    BM25_AVAILABLE = False
+    BM25Index = None
+
 load_dotenv()
 logging.basicConfig(
     level=logging.INFO,
@@ -89,19 +103,40 @@ def main():
     print("   Chunk types:")
     for ctype, count in chunk_types.items():
         print(f"   - {ctype}: {count}")
-    
+
+    # Step 2b: Enrich chunks with LLM (if enabled)
+    if ENRICHER_AVAILABLE and config.get('metadata_injection', {}).get('enabled'):
+        print("\n✨ Step 2b: Enriching chunks with LLM...")
+        print("-" * 50)
+        enricher = ChunkEnricher(config)
+        chunks = enricher.enrich_chunks(chunks)
+        print(f"✅ Enriched {len(chunks)} chunks with summaries and keywords")
+
     # Step 3: Create embeddings
     print("\n🧮 Step 3: Creating embeddings...")
     print("-" * 50)
     
-    # Check for OpenAI key
-    if os.getenv('OPENAI_API_KEY'):
-        print("✅ Using OpenAI embeddings (best quality)")
+    # Check for embedding API keys
+    provider = config['embeddings'].get('provider', 'openai')
+    if provider == 'voyage' and os.getenv('VOYAGE_API_KEY'):
+        print("✅ Using Voyage AI embeddings (asymmetric)")
+    elif os.getenv('OPENAI_API_KEY'):
+        print("✅ Using OpenAI embeddings")
     else:
         print("⚠️  Using local embeddings (no API key found)")
-        print("   For best results, add OPENAI_API_KEY to .env file")
-    
+        print("   For best results, add VOYAGE_API_KEY or OPENAI_API_KEY to .env file")
+
     embedder = create_embeddings(documents, chunks)
+
+    # Step 3b: Build BM25 index for hybrid search (if enabled)
+    if BM25_AVAILABLE and config.get('search', {}).get('hybrid_enabled'):
+        print("\n🔍 Step 3b: Building BM25 index for hybrid search...")
+        print("-" * 50)
+        bm25_path = config['search'].get('bm25_index_path', './data/bm25_index.pkl')
+        bm25_index = BM25Index()
+        bm25_index.build(chunks)
+        bm25_index.save(bm25_path)
+        print(f"✅ BM25 index saved to {bm25_path}")
     
     # Step 4: Show final statistics
     print("\n📊 Step 4: Final Statistics")

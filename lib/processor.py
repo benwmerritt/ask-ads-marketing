@@ -156,14 +156,23 @@ class DocumentProcessor:
         return documents
     
     def _parse_transcript(self, file_path: Path) -> Optional[Document]:
-        """Parse a video transcript - handles multiple formats"""
+        """Parse a video transcript - handles multiple formats with YAML fallback"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                post = frontmatter.load(f)
-            
-            # Handle flexible metadata fields
-            metadata = post.metadata
-            
+                raw_content = f.read()
+
+            # Try standard frontmatter parsing first
+            try:
+                post = frontmatter.loads(raw_content)
+                metadata = post.metadata
+                content = post.content
+            except yaml.YAMLError:
+                # Fallback: extract metadata via regex when YAML is malformed
+                # (e.g., unquoted colons in titles like "$100M CEO: How to...")
+                metadata = self._extract_metadata_fallback(raw_content)
+                content = self._extract_body_fallback(raw_content)
+                logger.debug(f"Used fallback parsing for {file_path.name}")
+
             # Prefer explicit title; fallback to filename stem if missing/None
             title_val = metadata.get('title') or file_path.stem
             doc = Document(
@@ -179,8 +188,8 @@ class DocumentProcessor:
             # Store description from metadata if available
             if metadata.get('description'):
                 doc.summary = metadata.get('description')[:500]  # Limit length
-            
-            content = post.content
+
+            # content is already set above (from frontmatter or fallback)
             
             # Try to extract transcript section, but use full content if not found
             transcript_section = self._extract_section(content, ["Full Transcript", "Transcript"])
@@ -328,9 +337,47 @@ class DocumentProcessor:
                     'text': text.strip(),
                     'timestamp': timestamp.strip() if timestamp else None
                 })
-        
+
         return quotes
-    
+
+    def _extract_metadata_fallback(self, raw_content: str) -> Dict[str, Any]:
+        """Extract metadata via regex when YAML parsing fails.
+
+        Handles malformed frontmatter like unquoted colons in titles:
+            title: $100M CEO: "How to make decisions"
+        """
+        metadata = {}
+
+        # Extract title - everything after 'title:' until newline
+        title_match = re.search(r'^title:\s*(.+)$', raw_content, re.MULTILINE)
+        if title_match:
+            title = title_match.group(1).strip()
+            # Strip outer quotes if present
+            if (title.startswith('"') and title.endswith('"')) or \
+               (title.startswith("'") and title.endswith("'")):
+                title = title[1:-1]
+            metadata['title'] = title
+
+        # Extract other common fields
+        for field in ['video_id', 'url', 'video_url', 'channel', 'creator',
+                      'date_processed', 'transcript_date', 'description']:
+            match = re.search(rf'^{field}:\s*(.+)$', raw_content, re.MULTILINE)
+            if match:
+                value = match.group(1).strip().strip('"\'')
+                metadata[field] = value
+
+        return metadata
+
+    def _extract_body_fallback(self, raw_content: str) -> str:
+        """Extract body content when frontmatter parsing fails.
+
+        Removes the frontmatter block (--- ... ---) and returns the rest.
+        """
+        # Match frontmatter block: starts with ---, ends with ---
+        pattern = r'^---\s*\n.*?\n---\s*\n'
+        body = re.sub(pattern, '', raw_content, count=1, flags=re.DOTALL)
+        return body.strip()
+
     def get_statistics(self) -> Dict[str, Any]:
         """Get statistics about processed documents"""
         if not self.documents:

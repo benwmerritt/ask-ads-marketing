@@ -1,6 +1,6 @@
 """
 Universal Embedding System
-Supports OpenAI (best quality) with local fallback
+Supports Voyage AI, OpenAI, and local fallback
 """
 
 import os
@@ -12,11 +12,83 @@ from pathlib import Path
 from tqdm import tqdm
 import logging
 from dotenv import load_dotenv
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
+
+try:
+    import voyageai
+    VOYAGE_AVAILABLE = True
+except ImportError:
+    VOYAGE_AVAILABLE = False
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+
+class VoyageEmbeddingFunction:
+    """Custom embedding function for Voyage AI that works with ChromaDB.
+
+    Voyage requires different input_type for documents vs queries:
+    - input_type="document" for content being stored
+    - input_type="query" for search queries
+
+    This class defaults to "document" for ingestion. For queries,
+    use the embed_query() method or create a separate instance with input_type="query".
+    """
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "voyage-3-lite",
+        input_type: str = "document",
+        truncation: bool = True
+    ):
+        if not VOYAGE_AVAILABLE:
+            raise ImportError("voyageai package not installed. Run: pip install voyageai")
+
+        self.client = voyageai.Client(api_key=api_key)
+        self.model = model
+        self.input_type = input_type
+        self.truncation = truncation
+
+    def name(self) -> str:
+        return f"voyage-{self.model}"
+
+    def __call__(self, input: List[str]) -> List[List[float]]:
+        """ChromaDB calls this to embed text during .add() and .query()."""
+        if not input:
+            return []
+
+        result = self.client.embed(
+            texts=input,
+            model=self.model,
+            input_type=self.input_type,
+            truncation=self.truncation
+        )
+        return result.embeddings
+
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single query with input_type='query' for better retrieval."""
+        result = self.client.embed(
+            texts=[text],
+            model=self.model,
+            input_type="query",
+            truncation=self.truncation
+        )
+        return result.embeddings[0]
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed multiple documents with input_type='document'."""
+        if not texts:
+            return []
+
+        result = self.client.embed(
+            texts=texts,
+            model=self.model,
+            input_type="document",
+            truncation=self.truncation
+        )
+        return result.embeddings
 
 
 class UniversalEmbedder:
@@ -44,21 +116,42 @@ class UniversalEmbedder:
         self.collections = self._init_collections()
         
     def _get_embedding_function(self):
-        """Get the best available embedding function"""
+        """Get the best available embedding function.
+
+        Provider priority: voyage > openai > local
+        Falls through to next provider if API key not found.
+        """
         provider = self.config['embeddings']['provider']
-        
-        # Try OpenAI first (best quality)
-        if provider == 'openai':
+        model = self.config['embeddings'].get('model', 'text-embedding-3-small')
+
+        # Try Voyage first (if configured)
+        if provider == 'voyage':
+            api_key = os.getenv('VOYAGE_API_KEY')
+            if api_key and VOYAGE_AVAILABLE:
+                logger.info(f"Using Voyage embeddings: {model}")
+                return VoyageEmbeddingFunction(
+                    api_key=api_key,
+                    model=model,
+                    input_type="document"  # For ingestion
+                )
+            elif not VOYAGE_AVAILABLE:
+                logger.warning("voyageai package not installed, falling back to OpenAI")
+            else:
+                logger.warning("VOYAGE_API_KEY not found, falling back to OpenAI")
+
+        # Try OpenAI (if configured or as fallback from Voyage)
+        if provider in ('openai', 'voyage'):
             api_key = os.getenv('OPENAI_API_KEY')
             if api_key:
-                logger.info(f"Using OpenAI embeddings: {self.config['embeddings']['model']}")
+                openai_model = model if provider == 'openai' else 'text-embedding-3-small'
+                logger.info(f"Using OpenAI embeddings: {openai_model}")
                 return embedding_functions.OpenAIEmbeddingFunction(
                     api_key=api_key,
-                    model_name=self.config['embeddings']['model']
+                    model_name=openai_model
                 )
             else:
                 logger.warning("OpenAI API key not found, falling back to local embeddings")
-        
+
         # Fallback to local embeddings
         fallback_model = self.config['embeddings'].get('fallback_model', 'all-MiniLM-L6-v2')
         logger.info(f"Using local embeddings: {fallback_model}")
@@ -136,7 +229,9 @@ class UniversalEmbedder:
             
             for chunk in batch:
                 ids.append(chunk.chunk_id)
-                documents.append(chunk.content)
+                # Use enriched content if available (from LLM enrichment)
+                content = getattr(chunk, 'enriched_content', None) or chunk.content
+                documents.append(content)
                 
                 # Clean metadata
                 metadata = chunk.metadata.copy()

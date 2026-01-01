@@ -37,13 +37,13 @@ search:
   enable_mmr: true
   # BM25 hybrid search with RRF fusion
   hybrid_enabled: true
-  hybrid_alpha: 0.7  # 70% vector, 30% BM25
+  hybrid_alpha: 0.7 # 70% vector, 30% BM25
   bm25_index_path: "/app/data/bm25_index.pkl"
 
 # ⚠️ ENRICHMENT DISABLED - COSTS ~$5 PER BUILD
 # To enable: change 'enabled' to true (only do this intentionally!)
 metadata_injection:
-  enabled: false
+  enabled: true
   provider: "anthropic"
   model: "claude-haiku-4-5-20251001"
   batch_size: 5

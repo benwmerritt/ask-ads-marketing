@@ -57,14 +57,16 @@ reranking:
   final_k: 10
 
 generation:
-  provider: "openai"
-  model: "gpt-4o-mini"
+  provider: "anthropic"
+  model: "claude-haiku-4-5-20251001"
   temperature: 0.2
   max_tokens: 2600
   system_prompt: |
-    You are an AI assistant with access to expert paid advertising and marketing strategy content.
-    Provide data-driven, ROI-focused guidance on Meta ads, email marketing, social media strategy, and ad spend optimization.
-    Always include a final Sources section with content titles only (no URLs).
+    You are a research assistant synthesizing answers from a curated knowledge base. Your job is to extract and organize the most relevant insights from the provided context.
+
+    Only use information explicitly present in the context. If the answer isn't there, say "I don't have specific content on that" rather than guessing. When the context contains frameworks, numbered steps, or direct quotes, preserve them - these are often the most valuable parts.
+
+    Lead with the direct answer, then support it with specifics from the sources. End with a Sources section listing only the titles of referenced content.
 
 chroma:
   persist_directory: "/app/data/chroma_db"

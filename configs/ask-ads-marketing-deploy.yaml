@@ -16,8 +16,8 @@ data_sources:
 
 embeddings:
   provider: "voyage"
-  model: "voyage-3-lite"
-  batch_size: 100
+  model: "voyage-3.5"
+  batch_size: 32  # Voyage has 120K token limit; 32 × 3000 = 96K tokens (safe)
   show_progress: true
   fallback_model: "all-MiniLM-L6-v2"
 
@@ -40,12 +40,11 @@ search:
   hybrid_alpha: 0.7 # 70% vector, 30% BM25
   bm25_index_path: "/app/data/bm25_index.pkl"
 
-# ⚠️ ENRICHMENT DISABLED - COSTS ~$5 PER BUILD
-# To enable: change 'enabled' to true (only do this intentionally!)
+# Enrichment with OpenRouter Gemini 3 Flash (~10x cheaper than Anthropic)
 metadata_injection:
   enabled: true
-  provider: "anthropic"
-  model: "claude-haiku-4-5-20251001"
+  provider: "openrouter"
+  model: "google/gemini-3-flash-preview"
   batch_size: 5
 
 # Cohere reranking for final result relevance
